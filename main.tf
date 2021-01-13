@@ -33,8 +33,8 @@ module "security_group" {
 }
 
 module "ec2-instance" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "~> 2.0"
+  source  = "tfepod1.wwtmci.com/lob-A/ec2-instance/aws"
+  version = "2.16.0"
 
   instance_count = 1
 
@@ -58,3 +58,4 @@ module "ec2-instance" {
     "Location" = "AWS-US-EAST-1"
   }
 }
+
