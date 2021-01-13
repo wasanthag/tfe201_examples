@@ -19,13 +19,6 @@ module "vpc" {
   }
 }
 
-#data "aws_subnet_ids" "all" {
-#  vpc_id = module.vpc.vpc_id
-#  tags = {
-#    Name = "${var.pod_name}-tfe201-training"
-#  }
-#}
-
 module "security_group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 3.0"
@@ -65,4 +58,3 @@ module "ec2-instance" {
     "Location" = "AWS-US-EAST-1"
   }
 }
-
