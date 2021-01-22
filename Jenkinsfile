@@ -22,10 +22,12 @@ def tfeCredentials = 'TFE-Team-API-Token'                         //Credential I
         withCredentials([string(credentialsId: 'TFE-Team-API-Token', variable: 'token')]) {
           sh '''
             set +x
+            wget https://releases.hashicorp.com/terraform/0.14.5/terraform_0.14.5_linux_amd64.zip
+            unzip terraform_0.14.5_linux_amd64.zip
             sed -i 's/TOKEN/'"$token"'/g' terraformrc
             export TF_CLI_CONFIG_FILE=./terraformrc
-            terraform init -no-color -backend-config="token=$token" 
-            terraform validate -no-color
+            ./terraform init -no-color -backend-config="token=$token" 
+            ./terraform validate -no-color
           '''
         }
        }
@@ -39,7 +41,7 @@ def tfeCredentials = 'TFE-Team-API-Token'                         //Credential I
       steps {
           sh '''
             set +x
-            terraform apply -no-color
+            ./terraform apply -no-color
           '''
           sleep 60
         }
@@ -57,7 +59,7 @@ def tfeCredentials = 'TFE-Team-API-Token'                         //Credential I
        steps {
           sh '''
              set +x
-             terraform destroy -no-color
+             ./terraform destroy -no-color
           '''
         }
     }
