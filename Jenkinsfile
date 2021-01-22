@@ -1,7 +1,5 @@
 def repoName = "tfe201_examples"                         //Repo to store TF code for the TFE Workspace
 def branchName = "lab10"
-def repoSshUrl = "git@github.com:wasanthag/tfe201_examples.git"   //Must be ssh since we're using sshagent()
-//Credentials
 def gitCredentials = 'github-wasanthag'                   //Credential ID in Jenkins of your GitHub SSH Credentials
 def tfeCredentials = 'TFE-Team-API-Token'                         //Credential ID in Jenkins secret text of TFE Team API Token
 
