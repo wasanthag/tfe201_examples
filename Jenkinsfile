@@ -46,24 +46,23 @@ def tfeCredentials = 'TFE-Team-API-Token'                         //Credential I
           sleep 60
         }
        }
-      }
+      
 
-     stage('6. Delete Infrastructure'){
-      steps{
-        input("Delete Infrastructure?")
+     stage('3. Delete Infrastructure'){
+       steps{
+         input("Delete Infrastructure?")
       }
     }
 
 
-    stage('5. Cleanup Dev Infrastructure'){
-      steps {
+     stage('4. Cleanup Dev Infrastructure'){
+       steps {
           sh '''
              set +x
              terraform destroy -no-color
           '''
         }
     }
-
 
   } //stages
 }
