@@ -19,7 +19,7 @@ def tfeCredentials = 'TFE-Team-API-Token'                         //Credential I
 
       }
       steps {
-        withCredentials([string(credentialsId: 'TFE-Team-API-Token', variable: 'TOKEN')]) {
+        withCredentials([string(credentialsId: 'TFE-Team-API-Token', variable: 'token')]) {
           sh '''
             set +x
             sed -i 's/TOKEN/'"$token"'/g' terraformrc
