@@ -23,7 +23,8 @@ def tfeCredentials = 'TFE-Team-API-Token'                         //Credential I
           sh '''
             set +x
             wget https://releases.hashicorp.com/terraform/0.14.5/terraform_0.14.5_linux_amd64.zip
-            unzip terraform_0.14.5_linux_amd64.zip
+            unzip -o terraform_0.14.5_linux_amd64.zip
+            rm -rf *.zip*
             sed -i 's/TOKEN/'"$token"'/g' terraformrc
             export TF_CLI_CONFIG_FILE=./terraformrc
             ./terraform init -no-color -backend-config="token=$token" 
